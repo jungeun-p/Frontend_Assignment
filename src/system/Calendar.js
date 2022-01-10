@@ -11,12 +11,6 @@ const Calendar = () => {
     },
   ]);
 
-  // 캘린더 생성 함수
-  const createCalendar = () => {};
-
-  // 월 변경 함수
-  const changeMonth = () => {};
-
   // 스케줄 추가 함수
   const addSchedule = () => {};
 

@@ -1,17 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 
-const Month = () => {
+const Month = ({ viewDate, changeMonth }) => {
   return (
     <MonthWrap>
       <MonthDate>
-        <div className="thisYear">2022년</div>
-        <div className="thisMonth">01월</div>
+        <div className="thisYear">{`${viewDate.format("YYYY")}년`}</div>
+        <div className="thisMonth">{`${viewDate.format("M")}월`}</div>
       </MonthDate>
       <ChangeMonthWrap>
-        <div className="icon change">{`<`}</div>
-        <div className="icon today">오늘</div>
-        <div className="icon change">{`>`}</div>
+        <div
+          className="icon change"
+          onClick={() => changeMonth(viewDate, "decrease")}
+        >{`<`}</div>
+        <div
+          className="icon today"
+          onClick={() => changeMonth(viewDate, "today")}
+        >
+          오늘
+        </div>
+        <div
+          className="icon change"
+          onClick={() => changeMonth(viewDate, "increase")}
+        >{`>`}</div>
       </ChangeMonthWrap>
     </MonthWrap>
   );
@@ -28,8 +39,8 @@ const MonthWrap = styled.div`
 const MonthDate = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 800;
   .thisYear {
     margin-right: 10px;
   }
