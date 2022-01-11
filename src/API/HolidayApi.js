@@ -5,7 +5,7 @@ const SERVICE_KEY = `71FJMe%2BlAmxH%2Bq3UvkJwOp1L2Jje6JRyZjI4ZS6BmwBmonwDhB%2Fv2
 export const getHolidayDate = () => {
   return axios
     .get(
-      `https://cors-anywhere.herokuapp.com/http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?solYear=2021&ServiceKey=${SERVICE_KEY}&_type=json&numOfRows=100`
+      `http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?solYear=2021&ServiceKey=${SERVICE_KEY}&_type=json&numOfRows=100`
     )
     .then((response) => {
       console.log(response);

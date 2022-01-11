@@ -20,8 +20,8 @@ const WeekWrap = styled.div`
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 2px lightgray solid;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   .WeekName {
     width: 100%;
     padding: 10px 10px;

@@ -8,7 +8,7 @@ import Day from "../components/Day";
 import Month from "../components/Month";
 import Week from "../components/Week";
 
-const CalendarPage = () => {
+const CalendarPage = ({ schedule, onChange, deleteSchedule }) => {
   // day extend
   dayjs.extend(weekday);
   dayjs.extend(isoWeek);
@@ -17,7 +17,6 @@ const CalendarPage = () => {
   const today = dayjs();
   const [viewDate, setViewDate] = useState(dayjs());
   const [selectDate, setSelectDate] = useState(dayjs());
-  console.log(viewDate.get("day"));
 
   // 캘린더 생성 함수
   const createCalendar = useCallback(() => {
@@ -79,6 +78,23 @@ const CalendarPage = () => {
                     </span>
                     <span>일</span>
                   </div>
+                  {/* {isSelected && (
+                    <div className="schdule">
+                      <input
+                        className="title"
+                        name="title"
+                        value={schedule.title}
+                        onChagne={onChange}
+                      />
+                      <button
+                        className="button"
+                        type="button"
+                        onClick={() => {}}
+                      >
+                        추가
+                      </button>
+                    </div>
+                  )} */}
                 </div>
               );
             })}
@@ -105,7 +121,14 @@ const CalendarPage = () => {
     <CalendarWrap>
       <Month viewDate={viewDate} changeMonth={changeMonth} />
       <Week />
-      <Day createCalendar={createCalendar} />
+      <Day
+        viewDate={viewDate}
+        selectDate={selectDate}
+        setSelectDate={setSelectDate}
+        today={today}
+        onChange={onChange}
+        deleteSchedule={deleteSchedule}
+      />
     </CalendarWrap>
   );
 };

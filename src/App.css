@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-family: "appleM";
+}
+
+@font-face {
+  font-family: "appleM";
+  src: url("./assets/fonts/AppleSDGothicNeoM.ttf") foramt("truetype");
+}
+
+@font-face {
+  font-family: "appleB";
+  src: url("./assets/fonts/AppleSDGothicNeoB.ttf") foramt("truetype");
+}
+
+@font-face {
+  font-family: "appleEB";
+  src: url("./assets/fonts/AppleSDGothicNeoEB.ttf") foramt("truetype");
+}

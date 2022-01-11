@@ -39,7 +39,7 @@ const MonthWrap = styled.div`
 const MonthDate = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 800;
   .thisYear {
     margin-right: 10px;
