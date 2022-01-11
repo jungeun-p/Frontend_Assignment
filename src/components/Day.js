@@ -1,9 +1,11 @@
+import dayjs from "dayjs";
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const Day = ({
   today,
+  setDay,
   viewDate,
   selectDate,
   setSelectDate,
@@ -52,13 +54,17 @@ const Day = ({
               current.get("day") === 0 || current.get("day") === 6
                 ? "weekend"
                 : "";
+            let currentDate = current.format("YYYYMMDD");
             return (
               <div
                 className={`date ${isWeekend}`}
                 key={`${week}_${i}`}
                 onClick={() => {
                   setSelectDate(current);
-                  console.log(current.format("YYYYMMDD"));
+                  setDay((state) => ({
+                    ...state,
+                    date: currentDate,
+                  }));
                 }}
               >
                 <div className={`text ${isNone}`}>
@@ -67,14 +73,29 @@ const Day = ({
                   </span>
                   <span>일</span>
                 </div>
-                {/* schedule 일정 */}
-                {scheduleList.map((item) => (
-                  <div
-                    className="scheduleTitle"
-                    key={item.date}
-                    onClick={() => deleteSchedule(item.date)}
-                  >
-                    {current.format("YYYYMMDD") === item.date && item.title}
+                {/* schedule 일정 & 공휴일 일정 */}
+                {scheduleList.map((item, index) => (
+                  <div className="schedule" key={index}>
+                    {
+                      // 공휴일인 스케줄일 경우
+                      item.isHoliday === "Y" ? (
+                        <div className="holidayTitle">
+                          {current.format("YYYYMMDD") === `${item.locdate}` &&
+                            item.dateName}
+                        </div>
+                      ) : (
+                        // 일반 스케줄일 경우
+                        <div
+                          // key={index}
+                          className="scheduleTitle"
+                          // 일정 삭제 함수
+                          onClick={() => deleteSchedule(item.date)}
+                        >
+                          {current.format("YYYYMMDD") === item.date &&
+                            item.title}
+                        </div>
+                      )
+                    }
                   </div>
                 ))}
               </div>
@@ -95,6 +116,7 @@ const DayWrap = styled.div`
     flex-direction: row;
     justify-content: space-between;
   }
+  // 한 박스
   .date {
     width: 100%;
     height: 150px;
@@ -103,6 +125,7 @@ const DayWrap = styled.div`
     border-bottom: 1px #f3f3f3 solid;
     border-right: 1px #f3f3f3 solid;
     cursor: pointer;
+    // 박스 안의 숫자(일)
     .text {
       height: 24px;
       .day {
@@ -111,12 +134,14 @@ const DayWrap = styled.div`
         text-align: center;
         line-height: 25px;
       }
+      // 선택한 날짜
       .selected {
         width: 24px;
         height: 24px;
         background-color: black;
         color: white;
       }
+      // 오늘 날짜
       .today {
         width: 24px;
         height: 24px;
@@ -124,16 +149,24 @@ const DayWrap = styled.div`
         color: white;
       }
     }
-    .scheduleTitle {
+    .schedule {
       font-size: 12px;
-      border-radius: 5px;
-      background-color: skyblue;
       line-height: 20px;
-      padding-right: 5px;
       vertical-align: middle;
       color: #ffffff;
       margin-top: 5px;
+      .holidayTitle {
+        background-color: pink;
+        padding-right: 5px;
+        border-radius: 5px;
+      }
+      .scheduleTitle {
+        background-color: skyblue;
+        padding-right: 5px;
+        border-radius: 5px;
+      }
     }
+    // 지난 달 혹은 다음 달 날짜
     .none {
       color: lightgray;
     }

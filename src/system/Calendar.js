@@ -1,11 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getHolidayDate } from "../API/HolidayApi";
 import CalendarPage from "../pages/CalendarPage";
 import { actions } from "../store/schedule";
+import dayjs from "dayjs";
+import AddEvent from "../components/AddEvent";
 
 const Calendar = () => {
   const dispatch = useDispatch();
+  const today = dayjs();
+
   // 스케줄에 추가할 일정
   const [day, setDay] = useState({
     id: "",
@@ -38,14 +41,18 @@ const Calendar = () => {
   };
 
   useEffect(() => {
-    // getHolidayDate();
+    let year = today.format("YYYY");
+    dispatch(actions.fetchHoliday(year));
   }, []);
+
   return (
     <>
-      <CalendarPage onChange={onChange} deleteSchedule={deleteSchedule} />
-      <input name="date" value={day.date} onChange={onChange} />
-      <input name="title" value={day.title} onChange={onChange} />
-      <button onClick={addSchedule}>추가</button>
+      <CalendarPage
+        onChange={onChange}
+        deleteSchedule={deleteSchedule}
+        setDay={setDay}
+      />
+      <AddEvent day={day} onChange={onChange} addSchedule={addSchedule} />
     </>
   );
 };
