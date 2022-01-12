@@ -20,18 +20,7 @@ export const actions = {
   }),
 };
 
-const INITIAL_STATE = [
-  {
-    id: "20220116",
-    date: "20220116",
-    title: "카페 약속 ☕️",
-  },
-  {
-    id: "20220113",
-    date: "20220113",
-    title: "공원 가기 🌳",
-  },
-];
+const INITIAL_STATE = [];
 
 const reducer = createReducer(INITIAL_STATE, {
   [Types.AddSchedule]: (state, action) => {

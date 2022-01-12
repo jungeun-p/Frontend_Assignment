@@ -40,11 +40,6 @@ const Calendar = () => {
     //setSchedule(schedule.filter((item) => item.id !== id));
   };
 
-  useEffect(() => {
-    let year = today.format("YYYY");
-    dispatch(actions.fetchHoliday(year));
-  }, []);
-
   return (
     <>
       <CalendarPage

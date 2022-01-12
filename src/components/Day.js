@@ -59,6 +59,7 @@ const Day = ({
               <div
                 className={`date ${isWeekend}`}
                 key={`${week}_${i}`}
+                // 날짜 선택시 이벤트 추가 날짜에 자동 입력 처리
                 onClick={() => {
                   setSelectDate(current);
                   setDay((state) => ({
@@ -83,10 +84,9 @@ const Day = ({
                           {current.format("YYYYMMDD") === `${item.locdate}` &&
                             item.dateName}
                         </div>
-                      ) : (
+                      ) : item.title !== null ? (
                         // 일반 스케줄일 경우
                         <div
-                          // key={index}
                           className="scheduleTitle"
                           // 일정 삭제 함수
                           onClick={() => deleteSchedule(item.date)}
@@ -94,7 +94,7 @@ const Day = ({
                           {current.format("YYYYMMDD") === item.date &&
                             item.title}
                         </div>
-                      )
+                      ) : null
                     }
                   </div>
                 ))}
@@ -176,46 +176,6 @@ const DayWrap = styled.div`
     background-color: #f3f3f3;
     color: gray;
   }
-  // 일정 추가
-  /* .schdule {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 10px;
-    .title {
-      height: 15px;
-      width: 100%;
-      outline: none;
-      border: none;
-      border-bottom: 2px solid lightgray;
-      margin-right: 5px;
-      background: none;
-    }
-    .button {
-      font-size: 10px;
-      border: none;
-      width: 40%;
-      border-radius: 4px;
-    }
-  } */
 `;
-
-// const AddEvent = ({ isSelected, onChange, schedule }) => {
-//   return (
-//     isSelected && (
-//       <div className="schdule">
-//         <input
-//           className="title"
-//           name="title"
-//           value={schedule.title}
-//           onChange={onChange}
-//         />
-//         <button className="button" type="button" onClick={() => {}}>
-//           추가
-//         </button>
-//       </div>
-//     )
-//   );
-// };
 
 export default React.memo(Day);
