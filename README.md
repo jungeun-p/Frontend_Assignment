@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# 공휴일 API 연동 캘린더 웹페이지
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 실행 방법
+### 클론 / 포크 받기
+```
+$ git clone https://github.com/jungeun-p/frontend_assignment.git
+```
+### 프로젝트 실행 
+```
+$ yarn start
+```
+### 프로젝트 설명
+- 메인 페이지
+  
+  <img width="600" src="https://user-images.githubusercontent.com/61823846/149076822-4acc129b-6d9c-495e-afdb-6aaec7b86252.png">
 
-## Available Scripts
+  - 상단 화살표를 이용한 이전/다음 달 변경
+  - '오늘'버튼 클릭시 해당 월 화면 이동 후 해당 날짜 표시
+  - 공휴일 정보 안내 
 
-In the project directory, you can run:
+---
 
-### `yarn start`
+- 스케줄 추가 및 삭제 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  <img width="600" src="https://user-images.githubusercontent.com/61823846/149076816-a271d9f0-b073-4aa6-9793-43ae4d5582c1.png">
+  
+  - 원하는 날짜 클릭시 해당 날짜 자동 입력
+  - 일정 제목 작성 후 스케줄 추가 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  <img width="600" src="https://user-images.githubusercontent.com/61823846/149076807-4e5125e7-2bbc-4a16-a79f-f7a31b0b92d2.png">
+  
+  - 해당 스케줄 클릭 시 스케줄 삭제 
